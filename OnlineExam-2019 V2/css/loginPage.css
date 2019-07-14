@@ -1,0 +1,163 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* The image used */
+    background-image: url("/assets/images/loginPage.jpg");
+
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+}
+
+.btns {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+}
+
+.box {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #34495e;
+    transition: 1s;
+}
+
+.boxr {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #34495e;
+    transition: 1s;
+}
+
+.boxd {
+    width: 400px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #191919;
+    text-align: center;
+
+}
+
+.boxd h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.boxd input[type='text'],
+.boxd input[type='password'],
+.boxd input[type="email"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25sec;
+
+}
+
+.boxd input[type="text"]:focus,
+.boxd input[type="password"]:focus,
+.boxd input[type="email"]:focus {
+    width: 280px;
+    /* when in focus the width stretches to 280 px at 0.25 sec*/
+    border-color: #2ecc71;
+}
+
+#loginBtn,
+#registerBtn {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 10px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25sec;
+    cursor: pointer;
+    width: 150px;
+    justify-content: center;
+
+}
+
+#loginBtn:hover,
+#registerBtn:hover {
+    background: #2ecc71;
+
+}
+
+
+.hide-login-btn {
+    color: #000;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    font-size: 24px;
+    opacity: .7;
+}
+
+.hide-register-btn {
+    color: #000;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+    font-size: 24px;
+    opacity: .7;
+}
+
+
+.showed {
+    left: 0;
+}

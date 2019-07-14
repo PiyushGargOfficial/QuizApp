@@ -1,0 +1,521 @@
+body {
+  font-family: "Roboto Slab", serif;
+  background: #0000b0;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  backface-visibility: none;
+
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.usercontainer {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 300px;
+}
+
+.usercontainer span {
+  text-transform: uppercase;
+  display: block;
+}
+
+.text1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin-bottom: 5px;
+  position: relative;
+  animation: text 3s 1s;
+  background: #0000b0;
+}
+
+.text2 {
+  text-align: center;
+  font-size: 20px;
+  color: whitesmoke;
+  font-weight: 500;
+  border: 1px solid white;
+  border-top-right-radius: 5px;
+  width: 150px;
+}
+
+@keyframes text {
+  0% {
+    color: #0000b0;
+    margin-bottom: -40px;
+  }
+
+  30% {
+    letter-spacing: 25px;
+    margin-bottom: -40px;
+  }
+
+  85% {
+    letter-spacing: 8px;
+    margin-bottom: -40px;
+  }
+}
+
+.container {
+  height: 330px;
+  width: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border: 1px solid #08038c;
+  box-shadow: 0 0 8px 3px #fff;
+  letter-spacing: 1px;
+}
+
+.title {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #08038c;
+  font-weight: bold;
+}
+
+.quizQuestion {
+  padding: 20px;
+  font-size: 22px;
+  background: #08038c;
+  border-radius: 20px;
+  margin: 10px 0 10px 0;
+  color: #f6f6f6;
+  font-weight: bold;
+}
+
+.option {
+  width: 470px;
+  display: inline-block;
+  padding: 10px 0 10px 15px;
+  vertical-align: middle;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 10px 0 10px 0;
+  color: #000000;
+  border-radius: 20px;
+}
+
+.option:hover {
+  background: #08038c;
+  color: #f6f6f6;
+  font-weight: bold;
+}
+
+.nextButton {
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.5);
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  cursor: pointer;
+  float: right;
+  margin: 10px;
+}
+
+.nextButton:hover {
+  background: #08038c;
+  columns: #f6f6f6;
+  color: white;
+  font-weight: bold;
+}
+
+.result {
+  height: 100px;
+  text-align: center;
+  font-size: 75px;
+}
+
+.option input:checked .option {
+  background: #08038c;
+  color: #000;
+}
+
+.previousButton {
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.5);
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  cursor: pointer;
+  float: left;
+  margin: 10px;
+}
+
+.previousButton:hover {
+  background: #08038c;
+  columns: #f6f6f6;
+  color: white;
+  font-weight: bold;
+}
+
+.userTitle {
+  background: #56a5eb;
+  border-top: 3px solid blue;
+  border-radius: 10px;
+  position: absolute;
+  margin-right: 2px;
+}
+
+.startBtn {
+  border: 0;
+  background: #56a5eb;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid;
+  padding: 10px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25sec;
+  cursor: pointer;
+  width: 150px;
+  font-weight: bold;
+  position: absolute;
+  left: 650px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.startBtn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.timer {
+  border: 0;
+  background: #56a5eb;
+  display: block;
+  margin: 20px 40px;
+  text-align: center;
+  border: 2px solid;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25sec;
+  float: right;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.timer:hover {
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.circularLights {
+  height: 20px;
+  width: 20px;
+  background: #44e5e7;
+  margin-right: 2px;
+  border: 1px solid red;
+  border-radius: 50%;
+}
+
+.circularLights2 {
+  height: 20px;
+  width: 20px;
+  background: green;
+  margin-right: 2px;
+  border: 1px solid red;
+  border-radius: 50%;
+}
+
+.circularLightsDiv {
+  display: flex;
+  flex: wrap;
+  flex-direction: row;
+  margin-right: 2px;
+  position: absolute;
+  top: 140px;
+  left: 250px;
+}
+
+.submitBtn {
+  border: 0;
+  background: #56a5eb;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid;
+  padding: 10px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25sec;
+  cursor: pointer;
+  width: 150px;
+  font-weight: bold;
+  position: absolute;
+  left: 650px;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+  top: 80%;
+  padding-bottom: 15px;
+}
+
+.submitBtn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.resultDiv {
+  background: url(/assets/images/beautiful-dark-evening-29435.jpg) no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  transition: 1s;
+}
+
+.showed {
+  left: 0;
+}
+
+.gscore {
+  position: absolute;
+  font-size: 100px;
+  top: 55%;
+  text-shadow: 1px 2px 2px white;
+}
+
+.business-card {
+  width: 500px;
+  height: 280px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s linear;
+}
+
+/*perspective property gives a 3d dimension to the divs*/
+.front {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 40px;
+  transform: perspective(600px) rotateX(180deg);
+}
+
+.front::before,
+.front::after {
+  content: "";
+  position: absolute;
+  right: 0;
+}
+
+.front::before {
+  background: #2c3e50;
+  width: 80px;
+  height: 120px;
+  bottom: 0;
+  clip-path: polygon(0 100%, 40% 0, 100% 100%);
+}
+
+/* we changed bottom to top and changed width and color with body %age*/
+.front::after {
+  background: #34495e;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 80% 100%);
+}
+
+.front h2 {
+  text-transform: uppercase;
+}
+
+.front span {
+  background: #34495e;
+  color: #fff;
+  padding: 4px 10px;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.front .contact-info li {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  flex-direction: column;
+}
+
+.front .contact-info li i {
+  width: 26px;
+  height: 26px;
+  background: #34495e;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1px;
+}
+
+.back {
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 24px;
+  transform: perspective(600px) rotateX(0deg);
+}
+
+.business-card-active .front {
+  transform: perspective(600px) rotateX(0deg);
+}
+
+.business-card-active .back {
+  transform: perspective(600px) rotateX(-180deg);
+}
+
+.rscore {
+  margin-bottom: 2px;
+  width: 20;
+  height: 20px;
+}
+
+.goBackLogin {
+  background: black;
+  color: white;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 10%;
+  left: 30%;
+  width: 200px;
+  height: 50px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.goBackLogin:hover {
+  background: none;
+  color: white;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 10%;
+  left: 30%;
+  width: 300px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#progressBar {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  width: 200px;
+  height: 30px;
+  border: 2px solid #56a5eb;
+}
+
+.progressBarFull {
+  height: 28px;
+  background-color: blue;
+  margin-right: 1px;
+  width: 0%;
+}
+
+.goBacktoGame {
+  background: black;
+  color: white;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 10%;
+  left: 55%;
+  width: 200px;
+  height: 50px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.goBacktoGame:hover {
+  background: none;
+  color: white;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 10%;
+  left: 55%;
+  width: 300px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}

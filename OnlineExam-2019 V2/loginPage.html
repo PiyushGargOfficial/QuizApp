@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TestYourBrains</title>
+</head>
+<!--Bootstrap CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!--Firebase-->
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+<script src="./utils/firebase.js"></script>
+
+<!--fontawesome-->
+<script src="https://kit.fontawesome.com/c33aec9320.js"></script>
+
+<!--LOGIN PAGE CSS-->
+<link rel="stylesheet" href="./css/loginPage.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!--Scripts-->
+<script src="./js/controllers/loginController.js"></script>
+
+
+<body>
+    <div id="main">
+        <div class="bg-text">
+            <h2>TEST YOUR BRAINS <i class="fas fa-brain"></i></h2>
+        </div>
+        <div class="btns">
+            <button class="btn btn-dark mr-2 show-login-btn"><i class="fas fa-sign-in-alt mr-1"></i>LOGIN</button>
+            <button class="btn btn-dark show-register-btn"><i class="fas fa-user-plus mr-1"></i>REGISTER</button>
+        </div>
+    </div>
+    <div class="box">
+        <div class="hide-login-btn"><i class="fas fa-times"></i></div>
+        <form action="" class="boxd" id="loginForm">
+            <h1>LOGIN</h1>
+            <div id="errorLogin" class="alert-danger"></div>
+            <input type="text" name="" id="usernameLogin" placeholder="Username">
+            <input type="password" name="" id="passwordLogin" placeholder="Password">
+            <label id="loginBtn">LOGIN</label>
+        </form>
+    </div>
+    <div class="boxr">
+        <div class="hide-register-btn"><i class="fas fa-times"></i></div>
+        <form action="" class="boxd" id="registerForm">
+            <h1>REGISTER</h1>
+            <input type="text" placeholder="Username" id="registerUsername">
+            <input type="email" placeholder="Email" id="registerEmail" pattern=".+@foo.com">
+            <input type="password" placeholder="Password" id="registerPwd">
+            <label id="registerBtn">REGISTER</label>
+            <div id="registerMsg" class="alert-danger"></div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        $(".show-login-btn").on("click", function () {
+            $(".box").toggleClass("showed");
+        });
+        $(".hide-login-btn").on("click", function () {
+            $(".box").toggleClass("showed");
+        });
+        $(".show-register-btn").on("click", function () {
+            $(".boxr").toggleClass("showed");
+        });
+        $(".hide-register-btn").on("click", function () {
+            $(".boxr").toggleClass("showed");
+        });
+    </script>
+</body>
+
+
+</html>

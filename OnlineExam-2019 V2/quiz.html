@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TESTYOURBRAINS-QUIZ</title>
+    <!--Scripts-->
+    <script src="./js/models/quizQuestions.js"></script>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
+    <script src="https://kit.fontawesome.com/c33aec9320.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script src="./utils/firebase.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="./css/quiz.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="loader"></div>
+    <header>
+        <div class="usercontainer">
+            <span class="text1">Welcome</span>
+            <span class="text2" id="quizUser"></span>
+        </div>
+        <button id="startBtn" class="startBtn">Start</button>
+        <div id="timer" class="timer">Time : <span id="timerSec">00:60</span></div>
+    </header>
+    <main>
+        <div id="quizContainer" class="container">
+            <div class="title">TestYourBrains</div>
+            <div id="quizQuestion" class="quizQuestion"></div>
+            <label for="" class="option"><input type="radio" name="option" value="a" />
+                <span id="opt1"></span>
+            </label>
+            <label for="" class="option"><input type="radio" name="option" value="b" /><span id="opt2"></span></label>
+            <label for="" class="option"><input type="radio" name="option" value="c" /><span id="opt3"></span></label>
+            <label for="" class="option"><input type="radio" name="option" value="d" /><span id="opt4"></span></label>
+            <button id="nextButton" class="nextButton">Next</button>
+            <button id="previousButton" class="previousButton">Previous</button>
+        </div>
+        <div id="submitBtn" class="submitBtn">Submit</div>
+    </main>
+    <!--End of scorecard-->
+    <div class="resultDiv">
+        <div class="business-card middle">
+            <div class="front">
+                <h2 id="resName">Piyush Garg</h2>
+                <span id="tyMsg"><cite>Well Done!</cite></span>
+                <ul class="contact-info">
+                    <li id="rightAnsRes" class="rightAnsRes">
+                        <i class="fas fa-check-circle"></i>Right Answers
+                    </li>
+                    <li id="ansRes">
+                        <i class="fab fa-odnoklassniki"></i>Your Answers
+                    </li>
+                    <li id="tScore">
+                        <i class="fas fa-map-marker-alt"></i>Score
+                    </li>
+                </ul>
+            </div>
+            <div class="back">
+                <span>CLICK TO CHECK RESULTS</span>
+            </div>
+        </div>
+        <button id="goBackLogin" class="goBackLogin">
+            Go Back To Login Page
+        </button>
+        <button id="goBacktoGame" class="goBacktoGame">
+            Play Again
+        </button>
+    </div>
+    <!--End of ScoreCard-->
+    <footer></footer>
+    <script src="./js/controllers/quizController.js"></script>
+    <script>
+        $(".business-card").click(function () {
+            $(".business-card").toggleClass("business-card-active");
+        });
+    </script>
+</body>
+
+</html>
