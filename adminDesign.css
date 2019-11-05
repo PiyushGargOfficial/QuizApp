@@ -1,0 +1,24 @@
+.hand {
+  cursor: pointer;
+}
+
+.showHide {
+  display: none;
+}
+
+.userDetails {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: black;
+  color: white;
+  font-size: 1rem;
+  padding: 20px;
+  opacity: 999;
+  display: none;
+}
+
+#closeUserDetails {
+  cursor: pointer;
+}

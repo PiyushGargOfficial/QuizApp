@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TESTYOURBRAINS-Admin</title>
+</head>
+
+<!--Other Files-->
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
+<script src="https://kit.fontawesome.com/c33aec9320.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="./utils/autoGen.js"></script>
+<!--End of Other Files-->
+
+<!--Scripts-->
+
+<!--FirebaseJS-->
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+<script src="./utils/firebase.js"></script>
+
+
+<!--Controllers-->
+<script src="./js/controllers/adminController.js"></script>
+
+<!--Model JS-->
+<script src="./js/models/adminQuestion.js"></script>
+<script src="./js/models/adminQuestionOperation.js"></script>
+
+<!--End of Scripts-->
+
+<!--CSS-->
+<link href="./css/dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/adminDesign.css" type="text/css">
+<!--End of CSS-->
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">TestYourBrains<i class="fas fa-brain ml-2"></i></a>
+
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#" id="signOut">Sign out</a>
+                <!--takes to login page : location.href-->
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item" id="questionCrud">
+                            <a class="nav-link active alert-primary" href="#">
+                                <span data-feather="home"></span>
+                                Write Questions<span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="listStudents">
+                            <a class="nav-link alert-secondary" href="#">
+                                <span data-feather="file"></span>
+                                List Of Students
+                            </a>
+                        </li>
+                        <li class="nav-item" id="showScoreCard">
+                            <a class="nav-link alert-primary" href="#">
+                                <span data-feather="shopping-cart"></span>
+                                ScoreCard
+                            </a>
+                        </li>
+
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2 alert-danger">Welcome <span id="userID" class="font-weight-bold"></span>!</h1>
+                </div>
+
+                <!-- This is CRUD Area-->
+                <div id="mainArea">
+                    <h2>Question CRUD
+                        <small class="text-muted"><cite>Write Questions Here!</cite></small>
+                    </h2>
+                    <div class="form-group">
+                        <label for="">QuestionID</label>
+                        <label for="" id="id" class="form-control"><label>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Type Question</label>
+                        <textarea id="name" cols="30" rows="10" class="form-control" maxlength="250"></textarea>
+                        <div id="taCounter"
+                            class="float-right bg-dark col-3 text-white text-center rounded font-weight-bold">
+                            250 words left
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label for="">OptionA</label>
+                        <input id='option1' placeholder="Type OptionA" type="text" class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="">OptionB</label>
+                        <input id='option2' placeholder="Type OptionB" type="text" class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="">OptionC</label>
+                        <input id='option3' placeholder="Type OptionC" type="text" class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="">OptionD</label>
+                        <input id='option4' placeholder="Type OptionD" type="text" class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="">RightAns</label>
+                        <input id='rans' placeholder="Type RightAns" type="text" class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="">Score</label>
+                        <input id='score' min="1" max="10" type="range" class='form-control'>
+                    </div>
+                </div>
+
+                <!-- Button Section-->
+                <div class='form-group'>
+                    <button id='add' class='btn btn-primary'>Add</button>
+                    <button id="delete" class='btn btn-danger'>Delete</button>
+                    <button id="search" class='btn btn-info'>Search</button>
+                    <button id="update" class='btn btn-warning'>Update</button>
+                    <button id="sort" class='btn btn-primary'>Sort</button>
+                    <button id="clearAll" class='btn btn-info'>Clear All</button>
+                    <button id="saveToServer" class='btn btn-primary'>SaveToServer</button>
+                    <button id="fetchFromServer" class='btn btn-danger'>FetchFromServer</button>
+
+                </div>
+                <!--End of Button Section-->
+                <div id='sbox'>
+                    Search By <select id="searchby">
+                        <option value="-1">Select</option>
+                        <option value="score">By Score</option>
+                        <option value="name">By Question</option>
+                    </select>
+                    <input id='searchValue' type="text" placeholder="Type to Search">
+                </div>
+                <div id="sortBox">
+                    Sort By <select id="sortBy">
+                        <option value="-1">Sort</option>
+                        <option value="score">By Score</option>
+                        <option value="id">By Id</option>
+                    </select>
+                </div>
+                <h3>Total Records: <span id="total"></span>Mark:<span id="mark"></span>Unmark:<span id="unmark"></span>
+                </h3>
+                <table class="table table-bordered table-dark">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>OptionA</th>
+                            <th>OptionB</th>
+                            <th>OptionC</th>
+                            <th>OptionD</th>
+                            <th>RightAns</th>
+                            <th>Score</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody id="questions">
+
+                    </tbody>
+                </table>
+
+                <!-- This is end of CRUD Area-->
+
+                <!--This is the ScoreCard Area-->
+                <div id="userDetails" class="userDetails">
+                    <i class="fas fa-times" id="closeUserDetails"></i>
+                    <table class="userTable table table-dark table-striped table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="th">Students</td>
+                                <td class="th">Marks</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+</body>
+
+</html>
