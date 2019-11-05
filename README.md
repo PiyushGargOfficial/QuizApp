@@ -7,3 +7,6 @@ c. this project doesnt include verfication of login , so you can directly login 
 d. also score works on the last guy that login so if you login without register you will override the database of the previous player.
 e. To open the admin panel , go directly inside the login and type username:Piyush and password : piyush1234 , admin panel will open from where you can add more questions to the firebase database.
 f. you can change username and password by going in the logincontroller and changing it from there inside the code.
+
+
+THe three pages under Readme are the updated pages .
